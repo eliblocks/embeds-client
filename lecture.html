@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Learn ES6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- <header class="full-width half-height signed-out">
+      <div class="lecture-left">
+        <a href="#" class="navbar-brand text-white">Practical Javascript</a>
+      </div>
+      <div class="lecture-nav">
+        <a href="#" class="nav-btn">
+          <span class="nav-text">Previous Lecture</span>
+        </a>
+        <a href="#" class="nav-btn complete">
+          <span class="nav-text">Next Lecture</span>
+        </a>
+      </div>
+    </header> -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="course.html">Practical Javascript</a>
+      </div>
+    </nav>
+    <div class="row">
+      <div class="col-md-8 m-auto course-mainbar lecture-content">
+        <h2 class="section-title"></h2>
+        <div class="lecture-attachment">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="lecture-frame" frameborder="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      function getTitleById(id) {
+        switch(id) {
+          case 44:
+            return 'Functionality of ES6';
+            break;
+          case 45: 
+            return "Top 7 Things You Will Learn";
+            break;
+          case 46:
+            return "Common Pitfalls";
+            break;
+          case 47:
+            return "Testing Your Code";
+            break;
+          case 48:
+            return "Things to Know about this Course";
+            break;
+          case 49:
+            return "Tips to Getting Started with Javascript";
+            break;
+          case 50:
+            return "What is ES6?";
+            break;
+        }
+      }
+
+      $(function() {
+        var baseUrl = "https://www.browzable.com/embeds/"
+        var embedId = getParameterByName("id");
+        var frameUrl = baseUrl + embedId;
+        var sectionTitle = getTitleById(parseInt(embedId));
+        console.log(frameUrl);
+        $("#lecture-frame").attr("src", frameUrl);
+        $(".section-title").html(sectionTitle);
+      });
+
+
+    </script>
+  </body>
+</html>
+
+
